@@ -34,60 +34,6 @@ public class ScanMusic {
     public static ArrayList<MusicBean> data = new ArrayList<MusicBean>();
     private static Cursor cursor;
 
-    public ArrayList<MusicBean> query(ArrayList<MusicBean>list, Context mContext) {
-        //创建ArryList
-        ArrayList<MusicBean>arrayList;
-        //实例化ArryList对象
-        arrayList = new ArrayList<MusicBean>();
-        //创建一个扫描游标
-        Cursor c=mContext.getContentResolver().query(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI, null, null, null,MediaStore.Audio.Media.DEFAULT_SORT_ORDER);
-        if(c!=null)
-        {
-            //创建Model对象
-            MusicBean model;
-            //循环读取
-            //实例化Model对象
-            while(c.moveToNext()){
-
-                model = new MusicBean();
-                //扫描本地文件，得到歌曲的相关信息
-                //歌曲的名称
-                String music_name=c.getString(c.getColumnIndex(MediaStore.Audio.Media.TITLE));
-                //歌手的名称
-                String music_singer=c.getString(c.getColumnIndex(MediaStore.Audio.Media.ARTIST));
-                //歌曲的全路径
-                String path = c.getString(c.getColumnIndex(MediaStore.Audio.Media.DATA));
-                //歌曲的专辑名：MediaStore.Audio.Media.ALBUM
-                String album=c.getString(c.getColumnIndexOrThrow(MediaStore.Audio.Media.ALBUM));
-                //歌曲的总播放时长 ：MediaStore.Audio.Media.DURATION
-
-                //歌曲文件的大小 ：MediaStore.Audio.Media.SIZE
-
-                //歌曲文件的全名称：
-                String display_name=c.getString(c.getColumnIndexOrThrow(MediaStore.Audio.Media.DISPLAY_NAME));
-                //专辑的id
-                long albumID=c.getInt(c.getColumnIndex(MediaStore.Audio.Media.ALBUM_ID));
-                //音乐ｉｄ
-                long id=c.getLong(c.getColumnIndex(MediaStore.Audio.Media._ID));
-                //设置值到Model的封装类中
-                model.setText_song(music_name);
-                model.setText_singer(music_singer);
-                model.setPath(path);
-                model.setAlbum(album);
-                model.setDisplay_name(display_name);
-                model.setAlbumID(albumID);
-                model.setId(id);
-                //将model值加入到数组中
-                arrayList.add(model);
-
-            }
-            //打印出数组的长度
-            System.out.println(arrayList.size());
-
-        }
-        //得到一个数组的返回值
-        return arrayList;
-    }
 
     public static ArrayList getData(Context context,String path){
         data.clear();
@@ -132,61 +78,8 @@ public class ScanMusic {
         return  BitmapFactory.decodeStream(context.getResources().openRawResource(R.drawable.default_image),null,opts);
     }
 
-    //从文件中获取专辑封面位图
 
 
-    public static ArrayList<MusicBean> redLrc(String path) {
-        ArrayList<MusicBean> alist = new ArrayList<MusicBean>();
-
-        File f = new File(path.replace(".mp3", ".lrc"));
-
-        try {
-            FileInputStream fs = new FileInputStream(f);
-            InputStreamReader inputStreamReader = new InputStreamReader(fs,
-                    "utf-8");
-            BufferedReader br = new BufferedReader(inputStreamReader);
-            String s = "";
-            while (null != (s = br.readLine())) {
-                if (!TextUtils.isEmpty(s)) {
-                    MusicBean lrcModle = new MusicBean();
-                    String lylrc = s.replace("[", "");
-                    String data_ly[] = lylrc.split("]");
-                    if (data_ly.length > 1) {
-                        String time = data_ly[0];
-                        //lrcModle.setTime(LrcData(time));
-                        String lrc = data_ly[1];
-                        //lrcModle.setLrc(lrc);
-                        alist.add(lrcModle);
-                    }
-
-                }
-
-            }
-
-
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (UnsupportedEncodingException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-        return alist;
-
-    }
-
-    public static int LrcData(String time) {
-        time = time.replace(":", "#");
-        time = time.replace(".", "#");
-        String mTime[] = time.split("#");
-        int mtime = Integer.parseInt(mTime[0]);
-        int stime = Integer.parseInt(mTime[1]);
-        int mitime = Integer.parseInt(mTime[2]);
-        int ctime = (mtime * 60 + stime) * 1000 + mitime * 10;
-        return ctime;
-    }
 
     private static Bitmap getArtworkFromFile(Context context, long songid, long albumid){
         Bitmap bm = null;

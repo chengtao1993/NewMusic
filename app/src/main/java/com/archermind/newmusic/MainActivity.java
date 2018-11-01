@@ -111,10 +111,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         mContext = this;
         outIntent.setComponent(new ComponentName("com.archermind.c26poccontrol.tachograph","com.archermind.c26poccontrol.tachograph.MusicAppWidget"));
-        for (int i = 0; i <layouts.length ; i++) {
-            View v = getLayoutInflater().inflate(layouts[i],null);
-            view_list.add(v);
-        }
+        Log.d("hct","oncreat");
         scanMusic();
     }
 
@@ -195,6 +192,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void initView() {
+        for (int i = 0; i <layouts.length ; i++) {
+            View v = getLayoutInflater().inflate(layouts[i],null);
+            view_list.add(v);
+        }
         mViewPager = findViewById(R.id.view_pager);
         mViewPager.setAdapter(new ViewPagerAdapter(view_list,this));
         mTabLayout = findViewById(R.id.tab_layout);
@@ -435,8 +436,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (hasReadExternalStoragePermission != PackageManager.PERMISSION_GRANTED) {
             Activity activty=this;//1的话要进行询问，０的话不会询问
             ActivityCompat.requestPermissions(activty,new String[] {Manifest.permission.READ_EXTERNAL_STORAGE}, 1);
+            Log.d("hct","111111");
             return;
         }else {
+            Log.d("hct","22222");
             beans = ScanMusic.getData(this,current_source_path);
             initView();
         }

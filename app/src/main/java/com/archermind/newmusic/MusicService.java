@@ -91,7 +91,6 @@ public class MusicService extends Service implements MediaPlayer.OnCompletionLis
                 mediaPlayer.setLooping(false);
                 MainActivity.currentNumber=0;
             }
-            MainActivity.bean=MainActivity.beans.get(MainActivity.currentNumber);
                 MainActivity.changeView();
                 lastOrnext();
 
