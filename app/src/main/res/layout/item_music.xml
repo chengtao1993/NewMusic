@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<RelativeLayout
+    android:paddingBottom="30dp"
+    android:paddingTop="30dp"
+    android:id="@+id/item_container"
+    android:layout_width="1013dp"
+    android:orientation="vertical"
+    android:layout_height="103dp">
+    <ImageView
+        android:layout_alignParentTop="true"
+        android:background="@drawable/music_list_line"
+        android:layout_width="916dp"
+        android:visibility="invisible"
+        android:layout_height="3dp"/>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="75dp">
+    <ImageView
+        android:id="@+id/icon_playing"
+        android:layout_marginLeft="40dp"
+        android:gravity="center"
+        android:background="@drawable/ico_yinyue"
+        android:layout_width="40dp"
+        android:layout_height="40dp" />
+
+        <TextView
+            android:id="@+id/music_name"
+            android:layout_marginLeft="80dp"
+            android:textSize="36sp"
+            android:singleLine="true"
+            android:ellipsize="marquee"
+            android:maxEms="15"
+            android:text="歌曲"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="left"
+             />
+
+        <TextView
+            android:id="@+id/music_singer"
+            android:textSize="36sp"
+            android:singleLine="true"
+            android:ellipsize="marquee"
+            android:maxEms="15"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="left"
+            android:text="歌曲"
+             />
+
+        <TextView
+            android:id="@+id/music_album"
+            android:textSize="36sp"
+            android:singleLine="true"
+            android:ellipsize="marquee"
+            android:maxEms="15"
+            android:text="专辑"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="left"
+            />
+
+    </LinearLayout>
+</RelativeLayout>
+</LinearLayout>

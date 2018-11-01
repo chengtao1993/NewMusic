@@ -1,0 +1,272 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/shape_gradient_backgroud"
+        android:orientation="vertical">
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="bottom"
+                android:layout_marginBottom="25dp"
+                android:layout_marginStart="35dp">
+                <TextView
+                    android:id="@+id/data_source"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
+                    android:text="U盘"
+                    android:textColor="#47F8FC"
+                    android:textSize="36dp" />
+
+                <ImageButton
+                    android:id="@+id/arrow_down"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/usb"
+                    android:padding="10dp" />
+
+            </LinearLayout>
+            <android.support.design.widget.TabLayout
+                android:layout_marginLeft="300dp"
+                android:id="@+id/tab_layout"
+                style="@style/Home_TabLayout"
+                android:layout_width="944dp"
+                android:layout_height="135dp"
+                >
+
+
+            </android.support.design.widget.TabLayout>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#1E2C38"
+            android:paddingTop="27dp"
+            android:paddingBottom="27dp"
+            android:weightSum="4">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="157dp"
+                android:gravity="center"
+                android:text="歌曲名称"
+                android:textSize="38dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="133dp"
+                android:gravity="center"
+                android:text="歌手"
+                android:textSize="38dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="210dp"
+                android:gravity="center"
+                android:text="专辑"
+                android:textSize="38sp" />
+
+        </LinearLayout>
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"></android.support.v4.view.ViewPager>
+
+
+
+
+        <com.archermind.newmusic.LrcView
+            android:id="@+id/music_words"
+            android:layout_width="match_parent"
+            android:layout_height="270dp"
+            android:gravity="center"
+            android:lineSpacingExtra="18dp"
+            android:textColor="#ffffff"
+            android:background="@drawable/ico_guang"
+            android:textSize="40dp"></com.archermind.newmusic.LrcView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="60dp">
+            <ImageView
+                android:id="@+id/song_pic"
+                android:layout_width="221dp"
+                android:layout_height="221dp"
+                android:layout_marginStart="28dp"
+                android:src="@drawable/song_pic" />
+            <ImageView
+                android:layout_marginLeft="18dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ico_music"
+                android:layout_gravity="center"/>
+
+            <LinearLayout
+                android:id="@+id/song_info"
+                android:layout_marginLeft="34dp"
+                android:layout_width="wrap_content"
+                android:layout_height="221dp"
+                android:orientation="vertical"
+                android:gravity="center">
+                <TextView
+                    android:id="@+id/song"
+                    android:text="未知歌曲名"
+                    android:layout_marginBottom="11dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="32dp" />
+                <TextView
+                    android:id="@+id/songer"
+                    android:text="未知歌手"
+                    android:layout_marginTop="11dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="32dp"/>
+
+            </LinearLayout>
+
+            <ImageButton
+                android:id="@+id/setting"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_gravity="bottom"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="400dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/selector_sound_settings_button" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_marginBottom="30dp"
+            android:gravity="center">
+            <TextView
+                android:id="@+id/current_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00:00"
+                android:layout_marginRight="15dp"
+                android:textColor="#FFFFFF"
+                android:textSize="34dp" />
+            <SeekBar
+                android:id="@+id/seekBar"
+                android:thumb="@drawable/ico_dian"
+                android:splitTrack="false"
+                android:layout_width="723dp"
+                android:layout_height="wrap_content"
+                android:maxHeight="10dp"
+                android:minHeight="10dp"
+                android:progress="0"
+                android:progressDrawable="@drawable/seekbar"
+                />
+
+            <TextView
+                android:id="@+id/music_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:text="00:00"
+                android:textColor="#FFFFFF"
+                android:textSize="34dp" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/bottom_button"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_marginStart="60dp"
+            android:layout_marginEnd="60dp"
+            android:layout_gravity="bottom">
+
+            <ImageButton
+                android:id="@+id/playMode"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:background="@drawable/play_mode2"
+                android:scaleType="centerInside" />
+
+            <LinearLayout
+                android:id="@+id/play_button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+
+                <ImageButton
+                    android:id="@+id/music_pre"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/selector_pre_button" />
+
+
+                <ImageButton
+                    android:id="@+id/music_play"
+                    android:layout_width="144dp"
+                    android:layout_height="144dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="40dp"
+                    android:background="@drawable/selector_play_button"
+                    android:scaleType="center" />
+
+
+                <ImageButton
+                    android:id="@+id/music_next"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/selector_next_button" />
+
+
+            </LinearLayout>
+
+            <ImageButton
+                android:id="@+id/favorite"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/selector_favorite_button"
+                android:scaleType="centerCrop" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</FrameLayout>
